@@ -1,21 +1,65 @@
 <!DOCTYPE html>
 <html ng-app="helloWorld">
-  <head>
-    <meta charset="utf-8">
-    <title>Hello World!</title>
-    <script src="angular.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="angular.min.js"></script>
+  <script type="text/javascript">
+  var app = angular.module("helloWorld", []);
 
-    <script type="text/javascript">
-      var app = angular.module("helloWorld", []);
-      app.controller("helloWorldController", function($scope){
-        $scope.message = "Hello World!";
-      });
-    </script>
+  app.controller("listaComprasController", $scope => ListaComprasController($scope));
 
-  </head>
-  <body>
-    <h1 ng-controller="helloWorldController">
-      {{message}}
-    </h1>
-  </body>
+  function ListaComprasController($scope){
+    $scope.itens = [
+      {produto : "Leite", quantidade : 4},
+      {produto : "Café", quantidade: 3}
+    ];
+
+    $scope.adicionar = function(){
+      $scope.itens.push({
+            produto: $scope.item.produto,
+            quantidade : $scope.item.quantidade
+        });
+      $scope.itens.produto = $scope.itens.quantidade = "";
+    }
+  }
+  </script>
+
+</head>
+<body>
+
+  <div ng-controller="listaComprasController" class="main-content">
+    <h2>Lista de Produtos</h2>
+    
+    <form name="formItem">
+      <div class="form-group">
+        <input class="form-control" type="text" ng-model="item.produto" placeholder="Digite um produto">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="number" ng-model="item.quantidade" placeholder="Digite a quantidade">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" type="button" ng-click="adicionar()">Adicionar Item</button>
+      </div>
+    </form>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th><strong>Produto</strong></th>
+          <th><strong>Quantidade</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in itens">
+          <td>{{item.produto}}</td>
+          <td>{{item.quantidade}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</body>
 </html>
