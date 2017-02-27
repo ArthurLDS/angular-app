@@ -1,11 +1,10 @@
-header{
+.main-header{
   text-align: center;
-  margin-bottom: 30px;
 }
 .main-content{
   width: 400px;
   margin: 20px auto 0 auto;
 }
 .selecionado{
-  background-color: #4E7;
+  background-color: #fcff47;
 }
