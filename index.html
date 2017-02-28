@@ -25,6 +25,10 @@
         Seus Contatos
       </header>
       <section class="panel-body">
+        <article class="form-group">
+          <input type="text" ng-model="pesquisaDeContato" class="form-control" placeholder="O que você está procurando?"/>
+        </article>
+
         <table class="table" ng-show="contatos.length > 0">
           <thead>
             <tr>
