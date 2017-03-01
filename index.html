@@ -64,7 +64,7 @@
             <input class="form-control" type="text" ng-model="contato.nome" name="nome" placeholder="Digite um nome" ng-required="true" ng-minLength="3">
           </div>
           <div class="form-group">
-            <input class="form-control" type="text" ng-model="contato.telefone" name="telefone" placeholder="Digite o telefone" ng-pattern="/^\d{4,5}-\d{4}$/" ng-required="true">
+            <input class="form-control" type="text" ng-model="contato.telefone" name="telefone" placeholder="Digite o telefone" ng-pattern="/^\d{4,5}\d{4}$/" ng-required="true">
           </div>
           <div class="form-group">
             <select class="form-control" ng-model="contato.operadora" name="operadora" ng-options="operadora.nome for operadora in operadoras" ng-required="true">
@@ -87,14 +87,14 @@
           <div ng-show="contatoForm.operadora.$invalid && contatoForm.operadora.$dirty" class="alert alert-danger">
             Por favor, preencha a operadora.
           </div>
-
+          {{contato}}
           <div class="form-group">
             <button class="btn btn-primary btn-block" ng-disabled="contatoForm.$invalid"  ng-click="adicionar(contato)">Adicionar Contato</button>
           </div>
         </form>
       </section>
     </article>
-
   </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </body>
 </html>
