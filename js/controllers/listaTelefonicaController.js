@@ -1,6 +1,4 @@
-var app = angular.module("listaTelefonica", []);
-
-app.controller("listaTelefonicaController", ($scope, $http) => ListaTelefonicaController($scope, $http));
+angular.module("listaTelefonica").controller("listaTelefonicaController", ($scope, $http) => ListaTelefonicaController($scope, $http));
 
 function ListaTelefonicaController($scope, $http){
 
