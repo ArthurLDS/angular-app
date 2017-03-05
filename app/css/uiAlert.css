@@ -1,0 +1,9 @@
+.alert-heading{
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.alert-message{
+  margin-top: 6px;
+  font-size: 11pt;
+}
