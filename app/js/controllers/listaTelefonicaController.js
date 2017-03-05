@@ -4,7 +4,6 @@ angular.module("listaTelefonica").controller("listaTelefonicaController",
 function ListaTelefonicaController($scope, $http, contatosAPI){
 
   $scope.adicionar = function(contato){
-    contato.data = new Date();
     contatosAPI.saveContato(contato).then(function(response){
       delete $scope.contato;
       $scope.contatoForm.$setPristine(true);
