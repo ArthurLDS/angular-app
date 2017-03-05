@@ -14,6 +14,7 @@
   <script src="js/filters/nameFilter.js"></script>
   <script src="js/filters/ellipsisFilter.js"></script>
   <script src="js/directives/uiAlertDirective.js"></script>
+  <script src="js/directives/uiDateDirective.js"></script>
   <script src="js/value/configValue.js"></script>
 </head>
 <body>
@@ -24,8 +25,10 @@
 
   <section ng-controller="listaTelefonicaController" class="main-content">
 
-    <ui-alert title="Ops, houve um problema!" message="errorContatos">
-    </ui-alert>
+    <div ng-if="errorContatos">
+      <ui-alert title="Ops, houve um problema!" message="errorContatos">
+      </ui-alert>
+    </div>
 
     <div ng-if="contatos.length == 0">
       <i>Nenhum contato adicionado no momento</i>
@@ -82,6 +85,9 @@
               <option value="">Selecione uma operadora</option>
             </select>
           </div>
+          <div class="form-group">
+            <input type="text" class="form-control" ng-model="contato.data" name="data" ui-date placeholder="Digite uma data" ng-required="true">
+          </div>
 
           <div ng-show="contatoForm.nome.$error.required && contatoForm.nome.$dirty" class="alert alert-danger">
             Por favor, preencha o nome.
@@ -97,6 +103,9 @@
           </div>
           <div ng-show="contatoForm.operadora.$invalid && contatoForm.operadora.$dirty" class="alert alert-danger">
             Por favor, preencha a operadora.
+          </div>
+          <div ng-show="contatoForm.data.$invalid && contatoForm.data.$dirty" class="alert alert-danger">
+            Por favor, preencha a data.
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" ng-disabled="contatoForm.$invalid"  ng-click="adicionar(contato)">Adicionar Contato</button>
