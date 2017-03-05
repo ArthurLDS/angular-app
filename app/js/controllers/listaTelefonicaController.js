@@ -41,6 +41,7 @@ function ListaTelefonicaController($scope, $http, contatosAPI){
     },
     function(response){
       alert("Erro ao carregar contatos.");
+      $scope.errorContatos = "Erro ao carregar contatos.";
     });
   }
 
