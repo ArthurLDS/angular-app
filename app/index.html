@@ -16,6 +16,7 @@
   <script src="js/directives/uiAlertDirective.js"></script>
   <script src="js/directives/uiDateDirective.js"></script>
   <script src="js/directives/uiTelefoneDirective.js"></script>
+  <script src="js/directives/uiAccordionDirective.js"></script>
   <script src="js/value/configValue.js"></script>
 </head>
 <body>
@@ -100,7 +101,7 @@
             Por favor, preencha o telefone.
           </div>
           <div ng-show="contatoForm.telefone.$error.pattern && contatoForm.telefone.$dirty" class="alert alert-danger">
-            Por favor, preencha o telefone no formato DDDD-DDDD.
+            Por favor, preencha o telefone no formato (DD)DDDD-DDDD.
           </div>
           <div ng-show="contatoForm.operadora.$invalid && contatoForm.operadora.$dirty" class="alert alert-danger">
             Por favor, preencha a operadora.
@@ -114,6 +115,14 @@
         </form>
       </section>
     </article>
+    <ui-accordions>
+      <ui-accordion title="Accordion 1">
+        <strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </ui-accordion>
+      <ui-accordion title="Accordion 2">
+        <strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </ui-accordion>
+    </ui-accordions>
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </body>
