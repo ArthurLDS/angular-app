@@ -1,7 +1,7 @@
 angular.module("listaTelefonica").controller("listaTelefonicaController",
-  ($scope, $http, contatosAPI) => ListaTelefonicaController($scope, $http, contatosAPI));
+  ($scope, $http, contatosAPI, config) => ListaTelefonicaController($scope, $http, contatosAPI, config));
 
-function ListaTelefonicaController($scope, $http, contatosAPI){
+function ListaTelefonicaController($scope, $http, contatosAPI, config){
 
   $scope.adicionar = function(contato){
     contatosAPI.saveContato(contato).then(function(response){
@@ -16,7 +16,7 @@ function ListaTelefonicaController($scope, $http, contatosAPI){
 
   $scope.remover = function(contatos){
     let contatosNaoSelecionados = contatos.filter(c => !c.selecionado);
-    $http.post("http://localhost:8090/deleteContato", contatosNaoSelecionados).then(function(response){
+    $http.post(config.baseUrl + "/deleteContato", contatosNaoSelecionados).then(function(response){
       $scope.contatos = contatosNaoSelecionados;
     },
     function(response){
@@ -24,7 +24,17 @@ function ListaTelefonicaController($scope, $http, contatosAPI){
     });
 
   };
-
+  
+  $scope.editarContato = function(contato){
+      //To-do: persistir o contato.
+      $scope.contato = angular.copy(contato);
+  };
+  
+  $scope.cancelarEdicao = function(){
+    $scope.contato = {}; 
+    $scope.contatoForm.$setPristine(true);
+  };
+  
   $scope.isContatoSelecionado = function(contatos){
     return contatos.some(c => c.selecionado);
   };
@@ -45,7 +55,7 @@ function ListaTelefonicaController($scope, $http, contatosAPI){
   }
 
   let carregarOperadoras = function(){
-    $http.get('http://localhost:8090/operadoras').then(function (response){
+    $http.get(config.baseUrl + '/operadoras').then(function (response){
       $scope.operadoras = response.data;
     },
     function(response){
