@@ -73,6 +73,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <button type="button" ng-click="remover(contatos)" ng-disabled="!isContatoSelecionado(contatos)" class="btn btn-danger btn-block">Remover Contatos</button>
                         </section>
 
                     </article>
@@ -120,6 +121,7 @@
                                 <div class="form-group">
                                     
                                     <button class="btn btn-primary btn-block" ng-disabled="contatoForm.$invalid"  ng-click="adicionar(contato)">Adicionar Contato</button>
+                                    <button type="button" class="btn btn-danger btn-block" ng-click="cancelarEdicao()">Cancelar edição</button>
                                     
                                 </div>
                             </form>
