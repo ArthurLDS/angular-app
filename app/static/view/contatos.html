@@ -89,14 +89,16 @@
                         <div ng-show="contatoForm.operadora.$invalid &amp;&amp; contatoForm.operadora.$dirty" class="alert alert-danger">
                             Por favor, preencha a operadora.
                         </div>
-                        <div ng-show="contatoForm.data.$invalid &amp;& mp; contatoForm.data.$dirty" class="alert alert-danger">
+                        <div ng-show="contatoForm.data.$invalid &amp;&amp; contatoForm.data.$dirty" class="alert alert-danger">
                             Por favor, preencha a data.
                         </div>
 
                         <div class="form-group">
 
-                            <button class="btn btn-primary btn-block" ng-disabled="contatoForm.$invalid"  ng-click="adicionar(contato)">Adicionar Contato</button>
-                            <button type="button" class="btn btn-danger btn-block" ng-click="cancelarEdicao()">Cancelar edição</button>
+                            <button class="btn btn-primary btn-block" ng-disabled="contatoForm.$invalid"  ng-click="adicionar(contato)">
+                                {{contato.id!=null ? 'Salvar edição' : 'Adicionar Contato'}}
+                            </button>
+                            <button ng-show="contato.id!=null" type="button" class="btn btn-danger btn-block" ng-click="cancelarEdicao()">Cancelar edição</button>
 
                         </div>
                     </form>
