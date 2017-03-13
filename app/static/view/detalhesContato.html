@@ -1,0 +1,7 @@
+<div class="jumbotron" ng-controller="detalhesContatoController">
+    <h3>{{contato.nome}}</h3>
+    <div>Operadora: {{contato.operadora.nome}}</div>
+    <div>Telefone: {{contato.operadora.telefone}}</div>
+    <div>Data: {{contato.data| date:'dd/MM/yyyy'}}</div>
+    <div>Nº Identificação: {{contato.id}}</div>
+</div>
