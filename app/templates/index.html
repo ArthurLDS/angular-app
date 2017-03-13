@@ -13,6 +13,7 @@
         <script src="lib/uiUtils/uiUtils.js"></script>
         <script src="js/app.js"></script>
         <script src="js/controllers/listaTelefonicaController.js"></script>
+        <script src="js/controllers/detalhesContatoController.js"></script>
         <script src="js/services/contatosAPIService.js"></script>
         <script src="js/value/configValue.js"></script>
         <script src="js/config/routeConfig.js"></script>
@@ -23,16 +24,20 @@
         <script src="js/directives/uiTelefoneDirective.js"></script>
     </head>
     <body>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/contacts">Contatos</a>
-            </li>
-            
-        </ul>
-        <div ng-view="ng-view"> </div>
-        
+        <section class="container">
+            <section class="col-md-6 main-content">
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/contacts">Contatos</a>
+                    </li>
+
+                </ul>
+                <div ng-view="ng-view"> 
+                </div>
+            </section>
+        </section>
     </body>
 </html>
