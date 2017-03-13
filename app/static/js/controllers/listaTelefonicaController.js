@@ -1,8 +1,9 @@
 angular.module("listaTelefonica").controller("listaTelefonicaController",
-  ($scope, $http, contatosAPI, config) => ListaTelefonicaController($scope, $http, contatosAPI, config));
 
-function ListaTelefonicaController($scope, $http, contatosAPI, config){
-
+function ListaTelefonicaController($scope, $http, contatos, contatosAPI, config){
+  $scope.contatos = contatos.data;
+  $scope.operadoras = [];
+  
   $scope.adicionar = function(contato){
     contatosAPI.saveContato(contato).then(function(response){
       delete $scope.contato;
@@ -24,7 +25,6 @@ function ListaTelefonicaController($scope, $http, contatosAPI, config){
     });
 
   };
-  
   $scope.editarContato = function(contato){
       //To-do: persistir o contato.
       $scope.contato = angular.copy(contato);
@@ -43,8 +43,8 @@ function ListaTelefonicaController($scope, $http, contatosAPI, config){
     $scope.criterioDeOrdenacao = campo;
     $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
   };
-
-  let carregarContatos = function(){
+  
+ let carregarContatos = function(){
     contatosAPI.getContatos().then(function (response) {
       $scope.contatos = response.data;
     },
@@ -53,7 +53,7 @@ function ListaTelefonicaController($scope, $http, contatosAPI, config){
       $scope.errorContatos = "Erro ao carregar contatos.";
     });
   }
-
+  
   let carregarOperadoras = function(){
     $http.get(config.baseUrl + '/operadoras').then(function (response){
       $scope.operadoras = response.data;
@@ -62,7 +62,6 @@ function ListaTelefonicaController($scope, $http, contatosAPI, config){
       alert("Erro ao carregar operadora.")
     });
   }
-
-  carregarContatos();
+  
   carregarOperadoras();
-}
+});
