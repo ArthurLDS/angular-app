@@ -14,6 +14,9 @@ angular.module("listaTelefonica").config(function ($locationProvider, $routeProv
       templateUrl : 'view/detalhesContato.html'
       
     })
+    .when("/error", {
+        templateUrl : 'view/error.html'
+    })
     .otherwise({
       redirectTo: '/'
     });
