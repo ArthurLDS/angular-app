@@ -4,6 +4,7 @@ function ListaTelefonicaController($scope, $http, contatos, contatosAPI, config)
   $scope.contatos = contatos.data;
   $scope.operadoras = [];
   
+  
   $scope.adicionar = function(contato){
     contatosAPI.saveContato(contato).then(function(response){
       delete $scope.contato;
